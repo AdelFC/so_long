@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/10 11:59:30 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/18 09:05:29 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,17 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+#include <X11/X.h>
+#include <X11/keysym.h>
 
-int	main(void);
+typedef struct s_data
+{
+	void *mlx_ptr;
+	void *win_ptr;
+} t_data;
+
+int on_destroy(t_data *data);
+int on_keypress(int keysym, t_data *data);
+int main(void);
 
 #endif
