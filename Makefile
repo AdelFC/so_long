@@ -12,9 +12,11 @@ OBJ_DIR = obj
 INCS = -I includes
 MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 
 
-SRC = so_long.c
+SRC = 1_so_long.c 2_xpm_manager.c 3_ber_manager.c \
+	4_map_checker.c 5_map_parser.c 6_keys_assignation.c \
+	7_hooks.c 8_game.c 9_exit.c
 
-UTILS = 
+UTILS = ft_error.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o) $(UTILS:.c=.o))
 
