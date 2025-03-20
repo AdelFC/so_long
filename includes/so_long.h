@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/18 09:05:29 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:08:19 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ typedef struct s_data
 {
 	void *mlx_ptr;
 	void *win_ptr;
+
+	int move_count;
+	int	width;
+	int heigth;
+	int collectibles;
+	int collected;
+	int player_x;
+	int player_y;
 } t_data;
 
 int on_destroy(t_data *data);

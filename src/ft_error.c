@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 09:50:04 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/18 14:53:52 by afodil-c         ###   ########.fr       */
+/*   Created: 2025/03/18 15:02:39 by afodil-c          #+#    #+#             */
+/*   Updated: 2025/03/18 15:04:24 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-Ouvre le fichier .ber
-lire le contenu
-check longueur hauteur
-
+void	ft_print_error(int code)
+{
+	if (code == 1)
+		write(2, "Error\n", 6);
+}
