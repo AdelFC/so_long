@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:47 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 14:21:39 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 15:22:45 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,4 @@ int	get_map_width(char **map)
 	while (map[0][i])
 		i++;
 	return (i);
-}
-
-void	free_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	if (!map)
-		return ;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
 }

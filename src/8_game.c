@@ -6,8 +6,16 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:20:29 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/20 13:20:34 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 16:23:10 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	start_game(t_data *data)
+{
+	if (!data || !data->map)
+	{
+		return ;
+	}
+}

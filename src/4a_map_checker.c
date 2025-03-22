@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:26 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 14:21:20 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 14:52:41 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,19 @@
 
 int	is_valid_map(t_data *data)
 {
-	if (!data || !data->map || !is_rectangle(data->map)
-		|| !is_map_playable(data))
+	if (!data || !data->map || !is_rectangle(data->map))
 		return (ERROR);
-	if (!check_map_elements(data->map, 'P', 1))
-	{
-		ft_print_error("Error: there must be exactly one player\n");
+	if (!check_map_essentials(data->map))
 		return (ERROR);
-	}
-	if (!check_map_elements(data->map, 'E', 1))
-	{
-		ft_print_error("Error: there must be exactly one exit\n");
-		return (ERROR);
-	}
-	if (!check_map_elements(data->map, 'C', 0))
-	{
-		ft_print_error("Error: there must be at least one collectible\n");
-		return (ERROR);
-	}
 	if (!check_map_walls(data->map))
 	{
 		ft_print_error("Error: map is not surrounded by walls\n");
+		return (ERROR);
+	}
+	if (!is_map_playable(data))
+	{
+		ft_print_error("Error: map not playable, \
+			all elements must be accessible\n");
 		return (ERROR);
 	}
 	return (SUCCESS);
@@ -65,6 +57,26 @@ int	check_map_elements(char **map, char find, int expected_count)
 		return (SUCCESS);
 	if (count != expected_count)
 		return (ERROR);
+	return (SUCCESS);
+}
+
+int	check_map_essentials(char **map)
+{
+	if (!check_map_elements(map, 'P', 1))
+	{
+		ft_print_error("Error: there must be exactly one player\n");
+		return (ERROR);
+	}
+	if (!check_map_elements(map, 'E', 1))
+	{
+		ft_print_error("Error: there must be exactly one exit\n");
+		return (ERROR);
+	}
+	if (!check_map_elements(map, 'C', 0))
+	{
+		ft_print_error("Error: there must be at least one collectible\n");
+		return (ERROR);
+	}
 	return (SUCCESS);
 }
 

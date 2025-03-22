@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 14:21:50 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 16:23:17 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,18 @@
 # define SUCCESS 0
 # define ERROR 1
 # define MAX_LINES 999
+
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+
+# define KEY_UP 65362
+# define KEY_DOWN 65364
+# define KEY_LEFT 65361
+# define KEY_RIGHT 65363
+
+# define KEY_ESC 65307
 
 typedef struct s_img
 {
@@ -59,8 +71,8 @@ typedef struct s_data
 int			main(int argc, char **argv);
 
 /* xpm_manager.c */
-// void    load_textures(t_data *data);
-// void    destroy_textures(t_data *data);
+void    load_textures(t_data *data);
+void    destroy_textures(t_data *data);
 
 /* ber_manager.c */
 int			check_map_filename(char *filename);
@@ -72,6 +84,7 @@ int			is_valid_map(t_data *data);
 int			check_map_walls(char **map);
 int			is_rectangle(char **map);
 int			check_map_elements(char **map, char find, int expected_count);
+int         check_map_essentials(char **map);
 int			is_map_playable(t_data *data);
 char		**dup_map(t_data *data);
 void		flood_fill(char **map, int y, int x);
@@ -84,16 +97,16 @@ int			get_nb_collectibles(char **map);
 void		free_map(char **map);
 int			init_player_position(t_data *data);
 
-// /* keys_assignation.c */
-// int     handle_keypress(int keycode, t_data *data);
-// void    move_player(t_data *data, int dx, int dy);
+/* keys_assignation.c */
+int     handle_keypress(int keycode, t_data *data);
+void    move_player(t_data *data, int x, int y);
 
 // /* hooks.c */
 // int     close_game(t_data *data);
 // int     render_game(t_data *data);
 
-// /* data.c */
-// void    start_game(t_data *data);
+/* game.c */
+void    start_game(t_data *data);
 // void    update_game_state(t_data *data);
 // void    check_win_condition(t_data *data);
 

@@ -17,7 +17,7 @@ SRC = 1_so_long.c 2_xpm_manager.c 3_ber_manager.c \
 	7_hooks.c 8_game.c 9_exit.c 5b_map_parser.c \
 	4b_map_checker.c
 
-UTILS = ft_error.c
+UTILS = ft_error.c free_maps.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o) $(UTILS:.c=.o))
 
