@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:15:31 by afodil-c          #+#    #+#             */
-/*   Updated: 2024/12/20 10:12:13 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:34:13 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		j;
 
 	i = 0;
-	size = ft_strlen(s1) + ft_strlen(s2);
+	size = ft_strlen2(s1) + ft_strlen2(s2);
 	result = malloc(sizeof(char) * (size + 1));
 	if (!result || !s1 || !s2)
 		return (0);
@@ -77,7 +77,7 @@ int	ft_newline(const char *str)
 	return (0);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen2(const char *s)
 {
 	size_t	i;
 

@@ -13,8 +13,9 @@ INCS = -I includes
 MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 
 
 SRC = 1_so_long.c 2_xpm_manager.c 3_ber_manager.c \
-	4_map_checker.c 5_map_parser.c 6_keys_assignation.c \
-	7_hooks.c 8_game.c 9_exit.c
+	4a_map_checker.c 5a_map_parser.c 6_keys_assignation.c \
+	7_hooks.c 8_game.c 9_exit.c 5b_map_parser.c \
+	4b_map_checker.c
 
 UTILS = ft_error.c
 

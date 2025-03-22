@@ -6,39 +6,57 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:17 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/20 16:47:04 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 00:39:39 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int check_ber_extension(char *filename)
+int check_map_filename(char *filename)
 {
     int len;
     if (!filename || *filename == '\0')
     {
         ft_print_error("Error: Filename is null or empty");
-        return (-1);
+        return (ERROR);
     }
     len = ft_strlen(filename);
-    if (len < 4 || ft_strcmp(filename + len - 4, ".ber") != 0)
+    if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
     {
         ft_print_error("Error: Invalid file extension. Expected '.ber'");
-        return (-1);
+        return (ERROR);
     }
-    return (0);
+    return (SUCCESS);
+}
+
+char    **read_lines_from_fd(int fd)
+{
+    char    **map;
+    char    *line;
+    int     i;
+
+    map = ft_calloc(MAX_LINES + 1, sizeof(char *));
+    if (!map)
+        return (NULL);
+    i = 0;
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        if (i >= MAX_LINES)
+        {
+            free(line);
+            break ;
+        }
+        map[i++] = line;
+    }
+    return (map);
 }
 
 char    **read_map_file(char *filename)
 {
     int     fd;
-    char    *line;
     char    **map;
-    int     i;
-    int     maxlines;
 
-    maxlines = 999;
-    if (check_ber_extension(filename) != 0)
+    if (check_map_filename(filename) != 0)
         return (NULL);
     fd = open(filename, O_RDONLY);
     if (fd < 0)
@@ -46,25 +64,9 @@ char    **read_map_file(char *filename)
         ft_print_error("Error: Failed to open the file");
         return (NULL);
     }
-    map = ft_calloc(maxlines + 1, sizeof(char *));
-    if (!map)
-    {
-        ft_print_error("Error: Memory allocation failed");
-        close(fd);
-        return (NULL);
-    }
-    i = 0;
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        if (i >= maxlines)
-        {
-            ft_print_error("Error: Map exceeds maximum allowed lines");
-            free(line);
-            break;
-        }
-        map[i++] = line;
-    }
+    map = read_lines_from_fd(fd);
     close(fd);
+    if (!map)
+        ft_print_error("Error: Memory allocation failed");
     return (map);
 }
-

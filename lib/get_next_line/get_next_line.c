@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:15:03 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/01/07 10:24:39 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:33:56 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_replace(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	tmp = ft_calloc(sizeof(char), ft_strlen(buffer) - i);
+	tmp = ft_calloc(sizeof(char), ft_strlen2(buffer) - i);
 	if (!tmp)
 		return (NULL);
 	i++;
