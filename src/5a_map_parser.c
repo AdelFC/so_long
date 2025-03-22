@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:47 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 01:01:31 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 12:27:22 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ int parse_map(char *filename, t_data *data)
     map = read_map_file(filename);
     if (!map)
         return (ERROR);
-    if (!is_valid_map(map))
-    {
-        free_map(map);
-        return (ERROR);
-    }
     data->map = map;
     data->map_length = get_map_length(map);
     data->map_width = get_map_width(map);
@@ -35,8 +30,15 @@ int parse_map(char *filename, t_data *data)
         free_map(map);
         return (ERROR);
     }
+    if (!is_valid_map(data))
+    {
+        free_map(map);
+        return (ERROR);
+    }
     return (SUCCESS);
 }
+
+
 
 int get_map_length(char **map)
 {

@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:38:52 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 02:24:44 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 12:26:18 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 
 int main(int argc, char **argv)
 {
-    char **map;
-    int i;
+    t_data  data;
+    int     i;
 
     if (argc != 2)
     {
-        ft_print_error("Usage: ./so_long <map_file.ber>");
+        ft_print_error("Usage: ./so_long <map_file.ber>\n");
         return (ERROR);
     }
-    map = read_map_file(argv[1]);
-    
-    if (!map)
+    if (parse_map(argv[1], &data) == ERROR)
         return (ERROR);
     i = 0;
-    while (map[i])
+    while (data.map[i])
     {
-        ft_putstr_fd(map[i], 1);
+        ft_putstr_fd(data.map[i], 1);
         i++;
     }
-    ft_free_map(map);
-    return (0);
+    free_map(data.map);
+    return (SUCCESS);
 }

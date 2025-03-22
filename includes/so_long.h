@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 02:22:19 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 12:18:50 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int     check_map_walls(char **map);
 int     is_rectangle(char **map);
 int     check_map_elements(char **map, char find, int expected_count);
 int     is_map_playable(t_data *data);
-char    **copy_map(char **map);
-int     flood_fill(char **map, int y, int x);
+char    **dup_map(t_data *data);
+void     flood_fill(char **map, int y, int x);
 
 /* map_parser.c */
 int     parse_map(char *filename, t_data *data);

@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:26 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 02:10:06 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 12:26:57 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ int is_valid_map(t_data *data)
 {
     if (!data || !data->map
         || !is_rectangle(data->map)
-        || !is_map_playable(data->map))
+        || !is_map_playable(data))
         return (ERROR);
-    if (!check_map_elements(data->map, "P", 1))
+    if (!check_map_elements(data->map, 'P', 1))
     {
         ft_print_error("Error: there must be exactly one player\n");
         return (ERROR);
     }
-    if (!check_map_elements(data->map, "E", 1))
+    if (!check_map_elements(data->map, 'E', 1))
     {
         ft_print_error("Error: there must be exactly one exit\n");
         return (ERROR);
     }
-    if (!check_map_elements(data->map, "C", 0))
+    if (!check_map_elements(data->map, 'C', 0))
     {
         ft_print_error("Error: there must be at least one collectible\n");
         return (ERROR);
