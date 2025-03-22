@@ -6,71 +6,69 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:47 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 12:27:22 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/22 14:21:39 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int parse_map(char *filename, t_data *data)
+int	parse_map(char *filename, t_data *data)
 {
-    char    **map;
+	char	**map;
 
-    map = read_map_file(filename);
-    if (!map)
-        return (ERROR);
-    data->map = map;
-    data->map_length = get_map_length(map);
-    data->map_width = get_map_width(map);
-    data->count_collectibles = get_nb_collectibles(map);
-    data->count_collected = 0;
-    data->count_move = 0;
-    if (!init_player_position(data))
-    {
-        free_map(map);
-        return (ERROR);
-    }
-    if (!is_valid_map(data))
-    {
-        free_map(map);
-        return (ERROR);
-    }
-    return (SUCCESS);
+	map = read_map_file(filename);
+	if (!map)
+		return (ERROR);
+	data->map = map;
+	data->map_length = get_map_length(map);
+	data->map_width = get_map_width(map);
+	data->count_collectibles = get_nb_collectibles(map);
+	data->count_collected = 0;
+	data->count_move = 0;
+	if (!init_player_position(data))
+	{
+		free_map(map);
+		return (ERROR);
+	}
+	if (!is_valid_map(data))
+	{
+		free_map(map);
+		return (ERROR);
+	}
+	return (SUCCESS);
 }
 
-
-
-int get_map_length(char **map)
+int	get_map_length(char **map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (map[i])
-        i++;
-    return (i);
+	i = 0;
+	while (map[i])
+		i++;
+	return (i);
 }
 
-int get_map_width(char **map)
+int	get_map_width(char **map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (map[0][i])
-        i++;
-    return (i);
+	i = 0;
+	while (map[0][i])
+		i++;
+	return (i);
 }
 
-void    free_map(char **map)
+void	free_map(char **map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!map)
-        return;
-    while (map[i])
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
+	i = 0;
+	if (!map)
+		return ;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
