@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 16:23:17 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:01:57 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int			check_map_walls(char **map);
 int			is_rectangle(char **map);
 int			check_map_elements(char **map, char find, int expected_count);
 int         check_map_essentials(char **map);
+int			is_valid_char(char c);
+int			check_map_unwanted(char **map);
 int			is_map_playable(t_data *data);
 char		**dup_map(t_data *data);
 void		flood_fill(char **map, int y, int x);
@@ -98,8 +100,8 @@ void		free_map(char **map);
 int			init_player_position(t_data *data);
 
 /* keys_assignation.c */
-int     handle_keypress(int keycode, t_data *data);
-void    move_player(t_data *data, int x, int y);
+// int     handle_keypress(int keycode, t_data *data);
+// void    move_player(t_data *data, int x, int y);
 
 // /* hooks.c */
 // int     close_game(t_data *data);

@@ -6,11 +6,38 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 02:10:18 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 14:21:34 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:11:09 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	is_valid_char(char c)
+{
+	return (c == '0' || c == '1' || c == 'P' || c == 'E' || c == 'C');
+}
+
+int	check_map_unwanted(char **map)
+{
+	int	i;
+	int	j;
+
+	if (!map)
+		return (ERROR);
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (!is_valid_char(map[i][j]))
+				return (ERROR);
+			j++;
+		}
+		i++;
+	}
+	return (SUCCESS);
+}
 
 char	**dup_map(t_data *data)
 {

@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:47 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 15:22:45 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:07:20 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,7 @@ int	parse_map(char *filename, t_data *data)
 	data->count_collectibles = get_nb_collectibles(map);
 	data->count_collected = 0;
 	data->count_move = 0;
-	if (!init_player_position(data))
-	{
-		free_map(map);
-		return (ERROR);
-	}
-	if (!is_valid_map(data))
+	if (init_player_position(data) == ERROR || is_valid_map(data) == ERROR)
 	{
 		free_map(map);
 		return (ERROR);

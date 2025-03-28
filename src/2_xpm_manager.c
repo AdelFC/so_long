@@ -6,17 +6,17 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:17:22 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/22 16:59:20 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:00:11 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    load_textures(t_data *data)
-{
+// void    load_textures(t_data *data)
+// {
 
-}
-void    destroy_textures(t_data *data)
-{
+// }
+// void    destroy_textures(t_data *data)
+// {
     
-}
+// }
