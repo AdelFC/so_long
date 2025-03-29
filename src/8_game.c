@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:20:29 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/29 15:08:47 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/29 17:59:14 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,9 @@ void	start_game(t_data *data)
 	mlx_loop(data->mlx);
 }
 
-void	check_win_condition(t_data *data)
-{
-	if (data->count_collectibles == 0 &&
-		data->map[data->player_y][data->player_x] == 'E')
-	{
-		ft_putstr_fd("🎉 Victory! You won the game.\n", 1);
-		close_game(data);
-	}
-}
-
 void	update_game_state(t_data *data)
 {
 	data->count_move++;
 	ft_printf("Moves: %d\n", data->count_move);
 	render_game(data);
-	check_win_condition(data);
 }

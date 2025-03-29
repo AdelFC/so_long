@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:17:22 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/29 15:13:31 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:28:06 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	load_textures(t_data *data)
 			&data->player.width, &data->player.height);
 	if (!data->player.img)
 		ft_print_error("Erreur: PLAYER.xpm\n");
-	data->wall.img = mlx_xpm_file_to_image(data->mlx, "assets/BRICK2.xpm",
+	data->wall.img = mlx_xpm_file_to_image(data->mlx, "assets/BRICK1.xpm",
 			&data->wall.width, &data->wall.height);
 	if (!data->wall.img)
 		ft_print_error("Erreur: BRICK.xpm\n");
@@ -27,7 +27,7 @@ int	load_textures(t_data *data)
 	if (!data->floor.img)
 		ft_print_error("Erreur: FLOOR.xpm\n");
 	data->collectible.img = mlx_xpm_file_to_image(data->mlx,
-			"assets/COLLECTIBLES2.xpm", &data->collectible.width,
+			"assets/COLLECTIBLES1.xpm", &data->collectible.width,
 			&data->collectible.height);
 	if (!data->collectible.img)
 		ft_print_error("Erreur: COLLECTIBLES.xpm\n");
