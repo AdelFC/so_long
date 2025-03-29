@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/28 18:01:57 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/29 00:43:55 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,12 @@ int			init_player_position(t_data *data);
 // int     handle_keypress(int keycode, t_data *data);
 // void    move_player(t_data *data, int x, int y);
 
-// /* hooks.c */
-// int     close_game(t_data *data);
-// int     render_game(t_data *data);
+/* hooks.c */
+int     close_game(t_data *data);
+int     render_game(t_data *data);
 
 /* game.c */
-void    start_game(t_data *data);
+// void    start_game(t_data *data);
 // void    update_game_state(t_data *data);
 // void    check_win_condition(t_data *data);
 

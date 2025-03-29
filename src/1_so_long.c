@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:38:52 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/28 18:05:37 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/29 01:09:17 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,45 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	int		i;
 
 	if (argc != 2)
 	{
 		ft_print_error("Usage: ./so_long <map_file.ber>\n");
 		return (ERROR);
 	}
+
+	// Parsing et vérification de la map
 	if (parse_map(argv[1], &data) == ERROR)
 		return (ERROR);
-	i = 0;
-	while (data.map[i])
+
+	// Initialisation de MLX et création de la fenêtre
+	data.mlx = mlx_init();
+	if (!data.mlx)
 	{
-		ft_putstr_fd(data.map[i], 1);
-		ft_putchar_fd('\n', 1);
-		i++;
+		ft_print_error("Error: Failed to initialize MLX\n");
+		free_map(data.map);
+		return (ERROR);
 	}
-	free_map(data.map);
+
+	data.win = mlx_new_window(data.mlx,
+		data.map_width * 64, data.map_length * 64, "so_long");
+
+	if (!data.win)
+	{
+		ft_print_error("Error: Failed to create window\n");
+		free_map(data.map);
+		return (ERROR);
+	}
+
+	// Chargement des textures et affichage de la map
+	load_textures(&data);
+	render_game(&data);
+
+	// Hook pour fermer la fenêtre (croix)
+	mlx_hook(data.win, 17, 0, close_game, &data);
+
+	// Boucle MLX
+	mlx_loop(data.mlx);
+
 	return (SUCCESS);
 }

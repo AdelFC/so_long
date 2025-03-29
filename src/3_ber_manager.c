@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:17 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/25 15:24:34 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:13:52 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ char	**read_lines_from_fd(int fd)
 {
 	char	**map;
 	char	*line;
+	int		len;
 	int		i;
-	int 	len;
 
 	i = 0;
 	map = ft_calloc(MAX_LINES + 1, sizeof(char *));

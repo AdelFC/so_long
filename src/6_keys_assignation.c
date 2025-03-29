@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:19:27 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/25 14:59:38 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/29 00:43:48 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@
 
 // void	move_player(t_data *data, int x, int y)
 // {
-// 	int	new_x;
-// 	int	new_y;
 // 	int	new_x;
 // 	int	new_y;
 
