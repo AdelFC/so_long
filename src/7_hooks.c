@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:19:56 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/29 00:48:20 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/29 14:59:13 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	close_game(t_data *data)
 	if (data->win)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx)
-		free(data->mlx); // facultatif selon ton implémentation MLX
-	exit(SUCCESS);
+		free(data->mlx);
+	return (SUCCESS);
 }
 
 int	render_game(t_data *data)

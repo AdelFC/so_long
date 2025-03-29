@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/29 00:43:55 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:12:30 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,20 @@ typedef struct s_data
 int			main(int argc, char **argv);
 
 /* xpm_manager.c */
-void    load_textures(t_data *data);
-void    destroy_textures(t_data *data);
+int			load_textures(t_data *data);
+void		destroy_textures(t_data *data);
 
 /* ber_manager.c */
 int			check_map_filename(char *filename);
 char		**read_lines_from_fd(int fd);
 char		**read_map_file(char *filename);
 
-// /* map_checker.c */
+/* map_checker.c */
 int			is_valid_map(t_data *data);
 int			check_map_walls(char **map);
 int			is_rectangle(char **map);
 int			check_map_elements(char **map, char find, int expected_count);
-int         check_map_essentials(char **map);
+int			check_map_essentials(char **map);
 int			is_valid_char(char c);
 int			check_map_unwanted(char **map);
 int			is_map_playable(t_data *data);
@@ -100,17 +100,17 @@ void		free_map(char **map);
 int			init_player_position(t_data *data);
 
 /* keys_assignation.c */
-// int     handle_keypress(int keycode, t_data *data);
-// void    move_player(t_data *data, int x, int y);
+int     handle_keypress(int keycode, t_data *data);
+void    move_player(t_data *data, int x, int y);
 
 /* hooks.c */
-int     close_game(t_data *data);
-int     render_game(t_data *data);
+int			close_game(t_data *data);
+int			render_game(t_data *data);
 
 /* game.c */
-// void    start_game(t_data *data);
-// void    update_game_state(t_data *data);
-// void    check_win_condition(t_data *data);
+void    start_game(t_data *data);
+void    update_game_state(t_data *data);
+void    check_win_condition(t_data *data);
 
 // /* exit.c */
 // void    free_game(t_data *data);
