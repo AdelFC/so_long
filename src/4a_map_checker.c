@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:26 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/28 18:11:17 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/01 12:49:49 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ int	is_valid_map(t_data *data)
 	}
 	if (is_map_playable(data) == ERROR)
 	{
-		ft_print_error("Error: map not playable, \
-			all elements must be accessible\n");
+		ft_print_error("Error: All elements must be accessible\n");
 		return (ERROR);
 	}
 	return (SUCCESS);

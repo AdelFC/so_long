@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:17:22 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/29 15:28:06 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/01 09:27:53 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ int	load_textures(t_data *data)
 		ft_print_error("Erreur: EXIT.xpm\n");
 	if (!data->exit.img || !data->collectible.img || !data->floor.img
 		|| !data->wall.img || !data->player.img)
+	{
+		destroy_textures(data);
 		return (ERROR);
+	}
 	return (SUCCESS);
 }
 

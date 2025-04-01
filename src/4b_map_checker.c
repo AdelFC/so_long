@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 02:10:18 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/28 18:11:09 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:02:54 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	is_valid_char(char c)
 {
-	return (c == '0' || c == '1' || c == 'P' || c == 'E' || c == 'C');
+	if (c == '0' || c == '1' || c == 'P' || c == 'E' || c == 'C')
+		return (SUCCESS);
+	return (ERROR);
 }
 
 int	check_map_unwanted(char **map)
@@ -30,7 +32,7 @@ int	check_map_unwanted(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (!is_valid_char(map[i][j]))
+			if (is_valid_char(map[i][j]) == ERROR)
 				return (ERROR);
 			j++;
 		}
@@ -52,7 +54,14 @@ char	**dup_map(t_data *data)
 	{
 		copy[i] = ft_strdup(data->map[i]);
 		if (!copy[i])
-			return (free_map(copy), NULL);
+		{
+			while (i > 0)
+			{
+				free(copy[--i]);
+			}
+			free(copy);
+			return (NULL);
+		}
 		i++;
 	}
 	copy[i] = NULL;
@@ -61,7 +70,7 @@ char	**dup_map(t_data *data)
 
 void	flood_fill(char **map, int y, int x)
 {
-	if (map[y][x] == '1' || map[y][x] == 'F')
+	if (map[y][x] == '1' || map[y][x] == 'F' || map[y][x] == 'E')
 		return ;
 	map[y][x] = 'F';
 	flood_fill(map, y + 1, x);

@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = so_long
 
 FT_PRINTF_DIR = lib/ftprintf
@@ -10,7 +10,7 @@ UTILS_DIR = utils
 SRC_DIR = src
 OBJ_DIR = obj
 INCS = -I includes
-MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 
+MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11
 
 SRC = 1_so_long.c 2_xpm_manager.c 3_ber_manager.c \
 	4a_map_checker.c 4b_map_checker.c \

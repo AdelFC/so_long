@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:17 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/28 18:13:52 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/01 11:35:18 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_map_filename(char *filename)
 	len = ft_strlen(filename);
 	if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
 	{
-		ft_print_error("Error: Invalid file extension. Expected '.ber'");
+		ft_print_error("Error: Invalid file extension. Expected '.ber'\n");
 		return (ERROR);
 	}
 	return (SUCCESS);
@@ -69,12 +69,12 @@ char	**read_map_file(char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_print_error("Error: Failed to open the file");
+		ft_print_error("Error: Failed to open the file\n");
 		return (NULL);
 	}
 	map = read_lines_from_fd(fd);
 	close(fd);
 	if (!map)
-		ft_print_error("Error: Memory allocation failed");
+		ft_print_error("Error: Memory allocation failed\n");
 	return (map);
 }

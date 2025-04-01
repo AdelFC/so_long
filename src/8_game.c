@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:20:29 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/29 17:59:14 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/01 12:22:52 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	start_game(t_data *data)
 	load_textures(data);
 	render_game(data);
 	mlx_loop_hook(data->mlx, &render_game, data);
-	mlx_hook(data->win, KeyRelease, KeyReleaseMask, &handle_keypress, data);
+	mlx_hook(data->win, KeyPress, KeyPressMask, &handle_keypress, data);
 	mlx_hook(data->win, 17, 0, &close_game, data);
 	mlx_loop(data->mlx);
 }
