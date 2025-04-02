@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/02 11:43:54 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 14:27:35 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+# define TILE_SIZE 64
 
 # define SUCCESS 0
 # define ERROR 1
@@ -98,6 +100,7 @@ int			get_map_width(char **map);
 int			get_nb_collectibles(char **map);
 void		free_map(char **map);
 int			init_player_position(t_data *data);
+int			is_map_big(char **map);
 
 /* keys_assignation.c */
 int			handle_keypress(int keycode, t_data *data);
