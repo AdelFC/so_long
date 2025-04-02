@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 02:10:18 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/01 13:02:54 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 11:37:52 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	is_map_playable(t_data *data)
 		j = 0;
 		while (map_copy[i][j])
 		{
-			if (map_copy[i][j] == 'C' || map_copy[i][j] == 'E')
+			if (map_copy[i][j] == 'C')
 			{
 				free_map(map_copy);
 				return (ERROR);

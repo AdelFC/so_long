@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:47 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/01 12:17:07 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 11:33:12 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	parse_map(char *filename, t_data *data)
 	char	**map;
 
 	map = read_map_file(filename);
-	if (!map || *map[0] != '1')
+	if (!map || !map[0] || map[0][0] != '1')
 	{
 		ft_print_error("Error: Map file is empty or incomplete.\n");
 		free_map(map);

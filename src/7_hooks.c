@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:19:56 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/01 11:29:42 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 11:43:49 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ int	close_game(t_data *data)
 {
 	free_game(data);
 	exit(EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 void	render_tile(t_data *data, int i, int j)
 {
 	void	*img;
 
+	if (!data || !data->map || !data->map[i])
+		return ;
 	mlx_put_image_to_window(data->mlx, data->win, data->floor.img, j * 64, i
 		* 64);
 	img = NULL;
