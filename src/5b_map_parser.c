@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 21:48:56 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/03/25 15:32:10 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 15:32:38 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ int	init_player_position(t_data *data)
 		}
 		i++;
 	}
+	ft_print_error("Error: there must be exactly one player.\n");
 	return (ERROR);
 }

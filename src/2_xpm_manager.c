@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:17:22 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/01 09:27:53 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 15:48:14 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int	load_textures(t_data *data)
 			&data->collectible.height);
 	if (!data->collectible.img)
 		ft_print_error("Erreur: COLLECTIBLES.xpm\n");
-	data->exit.img = mlx_xpm_file_to_image(data->mlx, "assets/EXIT.xpm",
+	data->exit.img = mlx_xpm_file_to_image(data->mlx, "assets/EXIjnejfT.xpm",
 			&data->exit.width, &data->exit.height);
 	if (!data->exit.img)
 		ft_print_error("Erreur: EXIT.xpm\n");
 	if (!data->exit.img || !data->collectible.img || !data->floor.img
 		|| !data->wall.img || !data->player.img)
 	{
-		destroy_textures(data);
+			destroy_textures(data);
 		return (ERROR);
 	}
 	return (SUCCESS);
