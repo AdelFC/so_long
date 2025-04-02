@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:20:29 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/01 12:22:52 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 21:03:40 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ void	start_game(t_data *data)
 			* 64, "so_long");
 	if (!data->win)
 		ft_print_error("Error: Failed to create window\n");
-	load_textures(data);
+	if (load_textures(data) == ERROR)
+	{
+		free_game(data);
+		exit(EXIT_FAILURE);
+	}
 	render_game(data);
 	mlx_loop_hook(data->mlx, &render_game, data);
 	mlx_hook(data->win, KeyPress, KeyPressMask, &handle_keypress, data);

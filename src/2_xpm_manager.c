@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:17:22 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/02 15:48:14 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 21:00:44 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	load_textures(t_data *data)
 
 void	destroy_textures(t_data *data)
 {
+	if (!data || !data->mlx)
+		return ;
 	if (data->player.img)
 		mlx_destroy_image(data->mlx, data->player.img);
 	if (data->wall.img)

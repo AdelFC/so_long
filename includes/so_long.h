@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/02 14:27:35 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 20:58:47 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-
-# define TILE_SIZE 64
 
 # define SUCCESS 0
 # define ERROR 1

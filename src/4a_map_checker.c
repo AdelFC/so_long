@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:18:26 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/02 15:26:46 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/02 20:58:06 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	check_map_essentials(char **map)
 		ft_print_error("Error: there must be exactly one player\n");
 		return (ERROR);
 	}
-	if (check_map_elements(map, 'E', 1) == ERROR )
+	if (check_map_elements(map, 'E', 1) == ERROR)
 	{
 		ft_print_error("Error: there must be exactly one exit\n");
 		return (ERROR);
