@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 02:10:18 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/02 14:48:58 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/03 21:05:29 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,27 +82,20 @@ void	flood_fill(char **map, int y, int x)
 int	is_map_playable(t_data *data)
 {
 	char	**map_copy;
-	int		i;
-	int		j;
 
 	map_copy = dup_map(data);
 	if (!map_copy)
 		return (ERROR);
 	flood_fill(map_copy, data->player_y, data->player_x);
-	i = 0;
-	while (map_copy[i])
+	if (has_collectibles(map_copy))
 	{
-		j = 0;
-		while (map_copy[i][j])
-		{
-			if (map_copy[i][j] == 'C')
-			{
-				free_map(map_copy);
-				return (ERROR);
-			}
-			j++;
-		}
-		i++;
+		free_map(map_copy);
+		return (ERROR);
+	}
+	if (is_exit(map_copy) == ERROR)
+	{
+		free_map(map_copy);
+		return (ERROR);
 	}
 	free_map(map_copy);
 	return (SUCCESS);

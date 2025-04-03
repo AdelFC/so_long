@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/03 14:12:31 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/03 21:04:36 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ int			check_map_unwanted(char **map);
 int			is_map_playable(t_data *data);
 char		**dup_map(t_data *data);
 void		flood_fill(char **map, int y, int x);
+int			is_exit(char **map);
+int			has_collectibles(char **map);
 
 /* map_parser.c */
 int			parse_map(char *filename, t_data *data);
@@ -110,6 +112,7 @@ int			render_game(t_data *data);
 /* game.c */
 void		start_game(t_data *data);
 void		update_game_state(t_data *data);
+int			init_graphics(t_data *data);
 
 /* exit.c */
 void		free_game(t_data *data);
