@@ -6,41 +6,61 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:17:22 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/02 21:00:44 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:26:12 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	check_xpm(const char *path)
+{
+	int	fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		return (ERROR);
+	close(fd);
+	return (SUCCESS);
+}
+
+int	check_all_xpm(void)
+{
+	if (check_xpm("assets/PLAYER.xpm") == ERROR)
+		return (ft_print_error("Error: PLAYER.xpm\n"), ERROR);
+	if (check_xpm("assets/BRICK1.xpm") == ERROR)
+		return (ft_print_error("Error: BRICK1.xpm\n"), ERROR);
+	if (check_xpm("assets/FLOOR.xpm") == ERROR)
+		return (ft_print_error("Error: FLOOR.xpm\n"), ERROR);
+	if (check_xpm("assets/COLLECTIBLES1.xpm") == ERROR)
+		return (ft_print_error("Error: COLLECTIBLES.xpm\n"), ERROR);
+	if (check_xpm("assets/EXIT.xpm") == ERROR)
+		return (ft_print_error("Error: EXIT.xpm\n"), ERROR);
+	return (SUCCESS);
+}
 
 int	load_textures(t_data *data)
 {
 	data->player.img = mlx_xpm_file_to_image(data->mlx, "assets/PLAYER.xpm",
 			&data->player.width, &data->player.height);
 	if (!data->player.img)
-		ft_print_error("Erreur: PLAYER.xpm\n");
-	data->wall.img = mlx_xpm_file_to_image(data->mlx, "assets/BRICK1.xpm",
+		return (destroy_textures(data), ERROR);
+	data->wall.img = mlx_xpm_file_to_image(data->mlx, "assets/BRICK2.xpm",
 			&data->wall.width, &data->wall.height);
 	if (!data->wall.img)
-		ft_print_error("Erreur: BRICK.xpm\n");
+		return (destroy_textures(data), ERROR);
 	data->floor.img = mlx_xpm_file_to_image(data->mlx, "assets/FLOOR.xpm",
 			&data->floor.width, &data->floor.height);
 	if (!data->floor.img)
-		ft_print_error("Erreur: FLOOR.xpm\n");
+		return (destroy_textures(data), ERROR);
 	data->collectible.img = mlx_xpm_file_to_image(data->mlx,
-			"assets/COLLECTIBLES1.xpm", &data->collectible.width,
+			"assets/COLLECTIBLES2.xpm", &data->collectible.width,
 			&data->collectible.height);
 	if (!data->collectible.img)
-		ft_print_error("Erreur: COLLECTIBLES.xpm\n");
-	data->exit.img = mlx_xpm_file_to_image(data->mlx, "assets/EXIjnejfT.xpm",
+		return (destroy_textures(data), ERROR);
+	data->exit.img = mlx_xpm_file_to_image(data->mlx, "assets/EXIT.xpm",
 			&data->exit.width, &data->exit.height);
 	if (!data->exit.img)
-		ft_print_error("Erreur: EXIT.xpm\n");
-	if (!data->exit.img || !data->collectible.img || !data->floor.img
-		|| !data->wall.img || !data->player.img)
-	{
-			destroy_textures(data);
-		return (ERROR);
-	}
+		return (destroy_textures(data), ERROR);
 	return (SUCCESS);
 }
 

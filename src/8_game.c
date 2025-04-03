@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:20:29 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/02 21:03:40 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:16:04 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,21 @@
 
 void	start_game(t_data *data)
 {
+	if (check_all_xpm() == ERROR)
+		exit(EXIT_FAILURE);
 	data->mlx = mlx_init();
 	if (!data->mlx)
+	{
 		ft_print_error("Error: MLX init failed\n");
+		exit(EXIT_FAILURE);
+	}
 	data->win = mlx_new_window(data->mlx, data->map_width * 64, data->map_length
 			* 64, "so_long");
 	if (!data->win)
-		ft_print_error("Error: Failed to create window\n");
+	{
+		free_mlx(data);
+		exit(EXIT_FAILURE);
+	}
 	if (load_textures(data) == ERROR)
 	{
 		free_game(data);

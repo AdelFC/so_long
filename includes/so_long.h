@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/02 20:58:47 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:45:47 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct s_data
 int			main(int argc, char **argv);
 
 /* xpm_manager.c */
+int			check_xpm(const char *path);
+int			check_all_xpm(void);
 int			load_textures(t_data *data);
 void		destroy_textures(t_data *data);
 
@@ -96,7 +98,6 @@ int			parse_map(char *filename, t_data *data);
 int			get_map_length(char **map);
 int			get_map_width(char **map);
 int			get_nb_collectibles(char **map);
-void		free_map(char **map);
 int			init_player_position(t_data *data);
 int			is_map_big(char **map);
 
@@ -120,5 +121,7 @@ void		free_mlx(t_data *data);
 
 /* utils */
 void		ft_print_error(char *message);
+void		free_map(char **map);
+int			check_count_valid(int count, int expected);
 
 #endif
