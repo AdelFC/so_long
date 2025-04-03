@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:20:29 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/03 13:16:04 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:38:55 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	start_game(t_data *data)
 {
 	if (check_all_xpm() == ERROR)
+	{
+		free_map(data->map);
 		exit(EXIT_FAILURE);
+	}
 	data->mlx = mlx_init();
 	if (!data->mlx)
 	{

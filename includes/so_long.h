@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:43:00 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/03 13:45:47 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:12:31 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,6 @@ typedef struct s_data
 	t_img	exit;
 	t_img	collectible;
 }			t_data;
-
-/* so_long.c */
-int			main(int argc, char **argv);
 
 /* xpm_manager.c */
 int			check_xpm(const char *path);
