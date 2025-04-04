@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:17:22 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/04 13:05:10 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/04 13:07:24 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	check_all_xpm(void)
 {
 	if (check_xpm("assets/PLAYER.xpm") == ERROR)
 		return (ft_print_error("Error: PLAYER.xpm\n"), ERROR);
-	if (check_xpm("assets/BRICK1.xpm") == ERROR)
-		return (ft_print_error("Error: BRICK1.xpm\n"), ERROR);
+	if (check_xpm("assets/BRICK.xpm") == ERROR)
+		return (ft_print_error("Error: BRICK.xpm\n"), ERROR);
 	if (check_xpm("assets/FLOOR.xpm") == ERROR)
 		return (ft_print_error("Error: FLOOR.xpm\n"), ERROR);
 	if (check_xpm("assets/COLLECTIBLES.xpm") == ERROR)
@@ -44,7 +44,7 @@ int	load_textures(t_data *data)
 			&data->player.width, &data->player.height);
 	if (!data->player.img)
 		return (destroy_textures(data), ERROR);
-	data->wall.img = mlx_xpm_file_to_image(data->mlx, "assets/BRICK1.xpm",
+	data->wall.img = mlx_xpm_file_to_image(data->mlx, "assets/BRICK.xpm",
 			&data->wall.width, &data->wall.height);
 	if (!data->wall.img)
 		return (destroy_textures(data), ERROR);
