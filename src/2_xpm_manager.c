@@ -6,7 +6,7 @@
 /*   By: afodil-c <afodil-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:17:22 by afodil-c          #+#    #+#             */
-/*   Updated: 2025/04/03 14:35:03 by afodil-c         ###   ########.fr       */
+/*   Updated: 2025/04/04 13:05:10 by afodil-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_all_xpm(void)
 		return (ft_print_error("Error: BRICK1.xpm\n"), ERROR);
 	if (check_xpm("assets/FLOOR.xpm") == ERROR)
 		return (ft_print_error("Error: FLOOR.xpm\n"), ERROR);
-	if (check_xpm("assets/COLLECTIBLES1.xpm") == ERROR)
+	if (check_xpm("assets/COLLECTIBLES.xpm") == ERROR)
 		return (ft_print_error("Error: COLLECTIBLES.xpm\n"), ERROR);
 	if (check_xpm("assets/EXIT.xpm") == ERROR)
 		return (ft_print_error("Error: EXIT.xpm\n"), ERROR);
@@ -53,7 +53,7 @@ int	load_textures(t_data *data)
 	if (!data->floor.img)
 		return (destroy_textures(data), ERROR);
 	data->collectible.img = mlx_xpm_file_to_image(data->mlx,
-			"assets/COLLECTIBLES1.xpm", &data->collectible.width,
+			"assets/COLLECTIBLES.xpm", &data->collectible.width,
 			&data->collectible.height);
 	if (!data->collectible.img)
 		return (destroy_textures(data), ERROR);
